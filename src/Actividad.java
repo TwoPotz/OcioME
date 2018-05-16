@@ -9,8 +9,13 @@ public class Actividad {
 		this.calificacion = calificacion;
 	}
 
-	/*
-	 * Prueba si una actividad fue calificada con una nota superior a otra
+	/**
+	 * Prueba si una actividad fue calificada con una nota superior a otra.
+	 * 
+	 * @param otraActividad
+	 *            Actividad a comparar con la primera.
+	 * @return Si otraActividad tiene menos calificación que la primera Actividad,
+	 *         devolverá true.
 	 */
 	boolean esMejorQue(Actividad otraActividad) {
 		if (this.calificacion > otraActividad.calificacion) {
@@ -20,8 +25,8 @@ public class Actividad {
 		}
 	}
 
-	/*
-	 * Imprime la actividad requerida
+	/**
+	 * Muestra una actividad requerida.
 	 */
 	void mostrarActividad() {
 		System.out.println("Actividad: " + this.titulo);
