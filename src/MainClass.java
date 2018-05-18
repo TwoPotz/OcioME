@@ -96,7 +96,7 @@ public class MainClass {
 				+ "4  \n"
 		        + "5  \n"
 		        + "6 \n"
-		        + "7  Salir\n";
+		        + "7 salir  \n";
 
 		opcion=recibirEntero(info);
 		return opcion;
