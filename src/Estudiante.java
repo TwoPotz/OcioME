@@ -40,6 +40,7 @@ public class Estudiante {
 	}
 
 public static void compararEstudiantes(String txt) {
+	//Agregar los generos?
 	String terror;
 	String ocio1=terror;
 	String ocio2=terror;
