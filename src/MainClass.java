@@ -1,11 +1,44 @@
 import javax.swing.JOptionPane;
 
+import java.util.Scanner;
+
 public class MainClass {
 
+	final static int EST_OCIOS=10;
+    static String  nombreEstudiante[]=new String [EST_OCIOS] ;
+    static Scanner teclado=new Scanner(System.in);
+	
 	public static void main(String[] args) {
 		saludar();
-		
+		int opcion=0;
+		do{
+			//recibirNotas ();
+			opcion=menu();
+			switch(opcion){
+			case 1:
+				
+				break;
+			case 2:
+				
+				break;
+			case 3:
+				break;
+			case 4:
+				break;
+			case 5:
+				break;
+			case 6:
+				break;
+			case 7:
+				despedirse();
+				teclado.close();
+				break;
+			default:
+				imprimir("Error en la opcion ingresada");	
+			}
 
+		}
+		while(opcion!=4);
 	}
 
 	
@@ -16,6 +49,67 @@ public class MainClass {
 		imprimir("Bienvenidos al programa de OcioME");
 		}
 	
+	
+	private static void estudiantes() {
+
+		nombreEstudiante[0]="Francisco";
+		nombreEstudiante[1]="Juan Pablo";
+		nombreEstudiante[2]="Daniel";
+		nombreEstudiante[3]="Andres";
+		nombreEstudiante[4]="josefina";
+		nombreEstudiante[5]="Pepito";
+		nombreEstudiante[6]="Pepita";
+		nombreEstudiante[8]="Rodolfo";
+		nombreEstudiante[9]="Rodolfa";
+	}
+	
+	private static int recibirEntero(String info){
+		/*imprimir(info);
+		while(!teclado.hasNextInt()){
+			imprimir("Error en opcion" + teclado.next());
+		}
+		return teclado.nextInt();*/
+		int dato=-1;
+		do{
+			String ax =recibirTexto(info);
+			try{	
+				dato=Integer.parseInt(ax);
+				return dato;
+			}
+			catch( NumberFormatException e){
+				imprimir("Error: " + e.getMessage());
+
+			}
+		}
+		while(true);
+
+	}
+	private static String recibirTexto(String str){
+		imprimir(str);
+		String ax = teclado.nextLine();
+		//String ax =JOptionPane.showInputDialog(str);
+		return ax;
+	}
+	
+	private static int menu(){
+		int opcion=-1;
+		String info="Que accion desea realizar: \n"
+				+ "1 mostrar perfil\n"
+				+ "2  Buscar un ocio\n"
+				+ "3 Ver lista de ocios\n"
+				+ "4  \n"
+		        + "5  \n"
+		        + "6 \n"
+		        + "7  \n";
+
+		opcion=recibirEntero(info);
+		return opcion;
+
+	}
+	
+	private static void despedirse(){
+		imprimir("Fue un placer ayudar con tus ocios, vuelve Pronto y recomiendaselo a tus amigos!!!");
+	}
 /**
 * Imprime la informacion.
 */
