@@ -11,6 +11,10 @@ public class Estudiante {
 	int cantidadOcios;
 	Ocio[] ocios;
 
+	public Estudiante(String string, String string2, int i, int j) {
+		// TODO Auto-generated constructor stub
+	}
+
 	/**
 	 * Muestra un breve saludo al usario.
 	 */
@@ -41,13 +45,19 @@ public class Estudiante {
 
 public static void compararEstudiantes(String txt) {
 	//Agregar los generos?
-	String terror;
-	String ocio1=terror;
-	String ocio2=terror;
-	ocio1=JOptionPane.showMessageDialog(null, txt);
-	ocio2=JOptionPane.showMessageDialog(null, txt);
+	int terror = 0;
+	int comedia=1;
+	int anime=2;
+	int accion=3;
+	int carros=4;
+	int romance=5;
+	int deportes=6;
+	int documnetales=7;
+	int ocio1=comedia;
+	int ocio2=terror;
 	
-	if(ocio1.equals(ocio2)) {
+	
+	if(ocio1 == ocio2) {
 		JOptionPane.showMessageDialog(null, "Comparten los mismos ocios");	
 	}
 	else {
