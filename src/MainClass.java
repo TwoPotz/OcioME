@@ -10,6 +10,7 @@ public class MainClass {
 	
 	public static void main(String[] args) {
 		saludar();
+		saludar2();
 		int opcion=0;
 		do{
 			//recibirNotas ();
@@ -49,6 +50,9 @@ public class MainClass {
 		imprimir("Bienvenidos al programa de OcioME");
 		}
 	
+	private static void saludar2(){
+		imprimir("Enfocado a encontrar esa serie o pelicula de sus sueños");
+		}
 	
 	private static void estudiantes() {
 
@@ -118,3 +122,4 @@ public class MainClass {
 	 		JOptionPane.showMessageDialog(null,txt);
 	 	}
 }
+
