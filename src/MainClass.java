@@ -17,7 +17,7 @@ public class MainClass {
 			opcion=menu();
 			switch(opcion){
 			case 1:
-				
+				Estudiante.mostrarPerfil();
 				break;
 			case 2:
 				
@@ -37,6 +37,91 @@ public class MainClass {
 			default:
 				imprimir("Error en la opcion ingresada");	
 			}
+
+		}
+		while(opcion!=4);
+	}
+
+	
+/**
+* Muestra un breve saludo al usario.
+*/
+	private static void saludar(){
+		imprimir("Bienvenidos al programa de OcioME");
+		}
+	
+	private static void saludar2(){
+		imprimir("Enfocado a encontrar esa serie o pelicula de sus sueños");
+		}
+	
+	private static void estudiantes() {
+
+		nombreEstudiante[0]="Francisco";
+		nombreEstudiante[1]="Juan Pablo";
+		nombreEstudiante[2]="Daniel";
+		nombreEstudiante[3]="Andres";
+		nombreEstudiante[4]="josefina";
+		nombreEstudiante[5]="Pepito";
+		nombreEstudiante[6]="Pepita";
+		nombreEstudiante[8]="Rodolfo";
+		nombreEstudiante[9]="Rodolfa";
+	}
+	
+	private static int recibirEntero(String info){
+		/*imprimir(info);
+		while(!teclado.hasNextInt()){
+			imprimir("Error en opcion" + teclado.next());
+		}
+		return teclado.nextInt();*/
+		int dato=-1;
+		do{
+			String ax =recibirTexto(info);
+			try{	
+				dato=Integer.parseInt(ax);
+				return dato;
+			}
+			catch( NumberFormatException e){
+				imprimir("Error: " + e.getMessage());
+
+			}
+		}
+		while(true);
+
+	}
+	private static String recibirTexto(String str){
+		imprimir(str);
+		String ax = teclado.nextLine();
+		//String ax =JOptionPane.showInputDialog(str);
+		return ax;
+	}
+	
+	private static int menu(){
+		int opcion=-1;
+		String info="Que accion desea realizar: \n"
+				+ "1 mostrar perfil\n"
+				+ "2  Buscar un ocio\n"
+				+ "3 Ver lista de ocios\n"
+				+ "4  \n"
+		        + "5  \n"
+		        + "6 \n"
+		        + "7  \n";
+
+		opcion=recibirEntero(info);
+		return opcion;
+
+	}
+	
+	private static void despedirse(){
+		imprimir("Fue un placer ayudar con tus ocios, vuelve Pronto y recomiendaselo a tus amigos!!!");
+	}
+/**
+* Imprime la informacion.
+*/
+	private static void imprimir(String txt){
+		//System.out.println(txt);
+	 		JOptionPane.showMessageDialog(null,txt);
+	 	}
+}
 
 		}
 		while(opcion!=4);
