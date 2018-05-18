@@ -4,7 +4,9 @@ import java.util.Scanner;
 
 public class MainClass {
     static Scanner teclado=new Scanner(System.in);
-    Estudiante pepita = new Estudiante("Pepita Jimenez", "ingenieria de sistemas", 21, 5);
+    static Estudiante pepita = new Estudiante("Pepita Jimenez", "ingenieria de sistemas", 21, 2);
+    static Estudiante rodolfo = new Estudiante("Rodolfo gonzales", "ingenieria quimica", 18, 1);
+    static Estudiante andres = new Estudiante("Andres alcazar", "ingeria de sistemas", 18, 3);
     
 	public static void main(String[] args) {
 		saludar();
@@ -14,6 +16,9 @@ public class MainClass {
 			opcion=menu();
 			switch(opcion){
 			case 1:
+				pepita.mostrarPerfil();
+				rodolfo.mostrarPerfil();
+				andres.mostrarPerfil();
 				;
 				break;
 			case 2:
