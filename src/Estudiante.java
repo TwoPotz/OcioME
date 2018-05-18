@@ -11,24 +11,20 @@ public class Estudiante {
 	int cantidadOcios;
 	Ocio[] ocios;
 
-	public Estudiante(String string, String string2, int i, int j) {
-		// TODO Auto-generated constructor stub
-	}
-
-	/**
-	 * Muestra un breve saludo al usario.
-	 */
-	private static void saludar() {
-		imprimir("Bienvenidos al programa de OcioME");
-	}
-
+	public Estudiante(String nombre, String carrera, int edad, int cantidadOcios) {
+	super();
+	this.nombre = nombre;
+	this.carrera = carrera;
+	this.edad = edad;
+	this.cantidadOcios = cantidadOcios;
+}
 	/**
 	 * Muestra el perfil de los usarios registrados con OcioME.
 	 */
 	public void mostrarPerfil() {
 		String txt = "Nombre " + this.nombre + "\n" + "Carrera: " + this.carrera + "\n" + "Edad: " + this.edad + "\n"
 				+ "Cantidad de ocios: " + this.cantidadOcios + "\n";
-		System.out.println(txt);
+		imprimir(txt);
 	}
 
 	public void verOcios(String nombre) {
