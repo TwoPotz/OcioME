@@ -11,7 +11,6 @@ public class MainClass {
 		saludar2();
 		int opcion=0;
 		do{
-			//recibirNotas ();
 			opcion=menu();
 			switch(opcion){
 			case 1:
