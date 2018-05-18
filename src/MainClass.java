@@ -52,26 +52,29 @@ public class MainClass {
 		}
 	
 	private static int recibirEntero(String info){
-		/*imprimir(info);
-		while(!teclado.hasNextInt()){
-			imprimir("Error en opcion" + teclado.next());
-		}
-		return teclado.nextInt();*/
 		int dato=-1;
-		do{
-			String ax =recibirTexto(info);
+		String ax = JOptionPane.showInputDialog(info);
 			try{	
 				dato=Integer.parseInt(ax);
-				return dato;
 			}
 			catch( NumberFormatException e){
-				imprimir("Error: " + e.getMessage());
+				JOptionPane.showMessageDialog(null, "Error: " + e.getMessage());
 
 			}
+			return dato;
 		}
-		while(true);
-
-	}
+	
+	private static double recibirDouble(String str){
+		double resultado=-1;
+		String ax = JOptionPane.showInputDialog(str);
+			try{
+				resultado=Double.parseDouble(ax);
+			}
+			catch( NumberFormatException e){
+				JOptionPane.showMessageDialog(null,"Error: " + e.getMessage());
+			}
+			return resultado;
+		}
 	private static String recibirTexto(String str){
 		imprimir(str);
 		String ax = teclado.nextLine();
