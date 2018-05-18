@@ -17,7 +17,7 @@ public class MainClass {
 			opcion=menu();
 			switch(opcion){
 			case 1:
-				Estudiante.mostrarPerfil();
+				
 				break;
 			case 2:
 				
