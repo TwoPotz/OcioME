@@ -37,7 +37,7 @@ public class MainClass {
 			}
 
 		}
-		while(opcion!=4);
+		while(opcion!=7);
 	}
 
 	
