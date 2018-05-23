@@ -35,7 +35,7 @@ public class Actividad {
 				System.out.println( "La serie es aceptable en: " +titulo);
 			}
 			else {
-				System.out.println("La serie tiene una mala calificacion en:" +titulo);
+				System.out.println("La serie tiene una mala calificacion en: " +titulo);
 			}
 		}
 		return calificacionPromedio;
