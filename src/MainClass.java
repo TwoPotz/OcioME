@@ -104,7 +104,7 @@ public class MainClass {
 				+ "3 Ver lista de ocios\n"
 				+ "4  \n"
 		        + "5  Mostrar lista de actividades\n"
-		        + "6 \n"
+		        + "6 Muestra la calificacion de las actividades, menos de 6 es mala y mas de 6 es aceptable\n"
 		        + "7 salir  \n";
 
 		opcion=recibirEntero(info);
