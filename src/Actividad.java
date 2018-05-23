@@ -32,10 +32,10 @@ public class Actividad {
 		for (int i=0; i<1; i++) {
 			if (calificacion > 6) {
 				calificacion = calificacion;
-				System.out.println( "La serie es aceptable en: " +titulo);
+				imprimir( "La serie es aceptable en: " +titulo);
 			}
 			else {
-				System.out.println("La serie tiene una mala calificacion en: " +titulo);
+				imprimir("La serie tiene una mala calificacion en: " +titulo);
 			}
 		}
 		return calificacionPromedio;
