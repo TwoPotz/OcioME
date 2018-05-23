@@ -31,6 +31,7 @@ public class MainClass {
 			case 3:
 				break;
 			case 4:
+				imprimir("¿Es sao mejor que avatar? "+sao.esMejorQue(avatar));;
 				break;
 			case 5:
 				bigbang.mostrarActividad();
