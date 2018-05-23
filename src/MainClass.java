@@ -10,6 +10,7 @@ public class MainClass {
     static Actividad infinitywar  = new Actividad("Infity War", 9);
     static Actividad sao  = new Actividad("Sword Art Online", 7);
     static Actividad bigbang  = new Actividad("The big bang theory", 10);
+    static Actividad avatar  = new Actividad("Avatar", 4);
     
 	public static void main(String[] args) {
 		saludar();
@@ -37,6 +38,8 @@ public class MainClass {
 				infinitywar.mostrarActividad();
 				break;
 			case 6:
+				sao.esCalificacionPromedio();
+				avatar.esCalificacionPromedio();
 				break;
 			case 7:
 				despedirse();
@@ -100,7 +103,7 @@ public class MainClass {
 				+ "2  Buscar un ocio\n"
 				+ "3 Ver lista de ocios\n"
 				+ "4  \n"
-		        + "5  Mostrar lista de actividades y sus calificaciones\n"
+		        + "5  Mostrar lista de actividades\n"
 		        + "6 \n"
 		        + "7 salir  \n";
 
