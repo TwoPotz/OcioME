@@ -1,3 +1,4 @@
+import javax.swing.JOptionPane;
 
 public class Actividad {
 	String titulo;
@@ -24,11 +25,32 @@ public class Actividad {
 			return false;
 		}
 	}
-
+	
+	
+	double esCalificacionPromedio() {
+		double calificacionPromedio = 0;
+		for (int i=0; i<1; i++) {
+			if (calificacion > 6) {
+				calificacion = calificacion;
+				System.out.println("La serie es aceptable");
+			}
+			else {
+				System.out.println("La serie tiene una mala calificacion");
+			}
+		}
+		return calificacionPromedio;
+	}
+	
+	
 	/**
 	 * Muestra una actividad requerida.
 	 */
 	void mostrarActividad() {
-		System.out.println("Actividad: " + this.titulo);
+		imprimir("Actividad: " + this.titulo);
+	}
+	
+	private static void imprimir(String txt) {
+		// System.out.println(txt);
+		JOptionPane.showMessageDialog(null, txt);
 	}
 }
