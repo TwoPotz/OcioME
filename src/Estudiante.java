@@ -8,6 +8,14 @@ public class Estudiante {
 	int cantidadOcios;
 	Ocio[] ocios = new Ocio[cantidadOcios];
 
+	/**
+	 * Datos de los estudiantes
+	 * @param nombre
+	 * @param carrera
+	 * @param edad
+	 * @param cantidadOcios
+	 * @param ocios
+	 */
 	public Estudiante(String nombre, String carrera, int edad, int cantidadOcios, Ocio[] ocios) {
 		this.nombre = nombre;
 		this.carrera = carrera;
@@ -24,7 +32,10 @@ public class Estudiante {
 				+ this.edad + "\n" + "Cantidad de ocios: " + this.cantidadOcios + "\n";
 		imprimir(txt);
 	}
-
+/**
+ * muestra los ocios
+ * @param nombre
+ */
 	public void verOcios(String nombre) {
 
 	}
@@ -96,6 +107,11 @@ public class Estudiante {
 		imprimir(txt1);
 	}
 
+	/**
+	 * Metodo para comparar los gustos de dos estudiantes
+	 * @param otroEstudiante
+	 */
+	
 	public void compararGustos(Estudiante otroEstudiante) {
 		System.out.println("Tú y " + otroEstudiante.nombre + " comparten los siguientes Ocios:");
 		int y = 0;
@@ -112,6 +128,12 @@ public class Estudiante {
 		}
 	}
 
+/**
+ * Metodo para comparar los ocios
+ * @param otroEstudiante
+ * @param texto
+ */
+	
 	public void compararOcio(Estudiante otroEstudiante, String texto) {
 		imprimir("Tú y " + otroEstudiante.nombre + " comparten las siguientes actividades dentro de " + texto + ":");
 		int q = 0;
@@ -152,6 +174,12 @@ public class Estudiante {
 		}
 	}
 
+	/**
+	 * Metodo para recibir entero
+	 * @param info
+	 * @return
+	 */
+	
 	private static int recibirEntero(String info) {
 		int dato = -1;
 		String ax = JOptionPane.showInputDialog(info);
