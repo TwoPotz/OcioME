@@ -1,11 +1,9 @@
-
 public class Ocio {
-	private String tipo;
-	private int cantidadActividades;
+	String tipo;
+	int cantidadActividades;
 	Actividad[] actividades = new Actividad[cantidadActividades];
 
 	public Ocio(String tipo, int cantidadActividades, Actividad[] actividades) {
-		super();
 		this.tipo = tipo;
 		this.cantidadActividades = cantidadActividades;
 		this.actividades = actividades;
