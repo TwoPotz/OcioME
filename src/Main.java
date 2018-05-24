@@ -150,9 +150,94 @@ public class Main {
 					}
 
 				} while (opcion != 7);
-			} else if (sesion == laura.nombre) {
+			} else if (sesion.equals(laura.nombre.toLowerCase())) {
 				d = 1;
-			} else if (sesion == fabio.nombre) {
+				int opcion = 0;
+				do {
+					opcion = menu();
+					switch (opcion) {
+					case 1:
+						laura.mostrarPerfil();
+						break;
+					case 2:
+						int g = 1;
+						do {
+							String ocioEleccion = recibirTexto("¿En qué Ocio desea ingresar su actividad?");
+							if (ocioEleccion.equals(laura.ocios[0].tipo)) {
+								laura.ocios[0].aniadirActividad(recibirTexto("Ingrese el título de su actividad"),
+										recibirEntero("Ingrese la calificación que le da a la actividad"));
+								imprimir("¡Añadido!");
+							} else if (ocioEleccion.equals(laura.ocios[1].tipo)) {
+								laura.ocios[1].aniadirActividad(recibirTexto("Ingrese el título de su actividad"),
+										recibirEntero("Ingrese la calificación que le da a la actividad"));
+								imprimir("¡Añadido!");
+							} else if (ocioEleccion.equals(laura.ocios[2].tipo)) {
+								laura.ocios[2].aniadirActividad(recibirTexto("Ingrese el título de su actividad"),
+										recibirEntero("Ingrese la calificación que le da a la actividad"));
+								imprimir("¡Añadido!");
+							} else {
+								g = 2;
+							}
+						} while (g == 2);
+						break;
+					case 3:
+						break;
+					case 4:
+						break;
+					case 5:
+						break;
+					case 6:
+						break;
+					case 7:
+						System.exit(0);
+						break;
+					default:
+						imprimir("Error en la opcion ingresada");
+					};
+			} else if (sesion.equals(fabio.nombre.toLowerCase())) {
+				d = 1;
+				int opcion = 0;
+				do {
+					opcion = menu();
+					switch (opcion) {
+					case 1:
+						fabio.mostrarPerfil();
+						break;
+					case 2:
+						int g = 1;
+						do {
+							String ocioEleccion = recibirTexto("¿En qué Ocio desea ingresar su actividad?");
+							if (ocioEleccion.equals(fabio.ocios[0].tipo)) {
+								fabio.ocios[0].aniadirActividad(recibirTexto("Ingrese el título de su actividad"),
+										recibirEntero("Ingrese la calificación que le da a la actividad"));
+								imprimir("¡Añadido!");
+							} else if (ocioEleccion.equals(fabio.ocios[1].tipo)) {
+								pedro.ocios[1].aniadirActividad(recibirTexto("Ingrese el título de su actividad"),
+										recibirEntero("Ingrese la calificación que le da a la actividad"));
+								imprimir("¡Añadido!");
+							} else if (ocioEleccion.equals(fabio.ocios[2].tipo)) {
+								fabio.ocios[2].aniadirActividad(recibirTexto("Ingrese el título de su actividad"),
+										recibirEntero("Ingrese la calificación que le da a la actividad"));
+								imprimir("¡Añadido!");
+							} else {
+								g = 2;
+							}
+						} while (g == 2);
+						break;
+					case 3:
+						break;
+					case 4:
+						break;
+					case 5:
+						break;
+					case 6:
+						break;
+					case 7:
+						System.exit(0);
+						break;
+					default:
+						imprimir("Error en la opcion ingresada");
+					}
 				d = 1;
 			} else {
 				d = 0;
