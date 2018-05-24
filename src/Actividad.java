@@ -1,11 +1,8 @@
-import javax.swing.JOptionPane;
-
 public class Actividad {
 	String titulo;
 	int calificacion;
 
 	public Actividad(String titulo, int calificacion) {
-		super();
 		this.titulo = titulo;
 		this.calificacion = calificacion;
 	}
@@ -25,33 +22,29 @@ public class Actividad {
 			return false;
 		}
 	}
-	
-	
-	double esCalificacionPromedio() {
-		double calificacionPromedio = 0;
-		for (int i=0; i<1; i++) {
-			if (calificacion > 6) {
-				calificacion = calificacion;
-				imprimir( "La serie es aceptable en: " +titulo);
-			}
-			else {
-				imprimir("La serie tiene una mala calificacion en: " +titulo);
-			}
-		}
-		return calificacionPromedio;
-	}
-	
-	
+
+	// double esCalificacionPromedio() {
+	// double calificacionPromedio = 0;
+	// for (int i = 0; i < 1; i++) {
+	// if (calificacion > 6) {
+	// calificacion = this.calificacion;
+	// imprimir("La serie es aceptable en: " + titulo);
+	// } else {
+	// imprimir("La serie tiene una mala calificacion en: " + titulo);
+	// }
+	// }
+	// return calificacionPromedio;
+	// }
+
 	/**
 	 * Muestra una actividad requerida.
 	 */
 	void mostrarActividad() {
 		imprimir("Actividad: " + this.titulo);
 	}
-	
+
 	private static void imprimir(String txt) {
-		// System.out.println(txt);
-		JOptionPane.showMessageDialog(null, txt);
+		System.out.println(txt);
+		// JOptionPane.showMessageDialog(null, txt);
 	}
 }
-
