@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 import javax.swing.JOptionPane;
 
 public class Estudiante {
@@ -18,6 +20,8 @@ public class Estudiante {
 		this.cantidadOcios = cantidadOcios;
 		this.ocios = ocios;
 	}
+	
+	static Scanner teclado = new Scanner(System.in);
 
 	/**
 	 * Muestra el perfil de los usarios registrados con OcioME.
@@ -118,7 +122,19 @@ public class Estudiante {
 	}
 
 	public void aniadirOcio(String titulo) {
-
+		int i=0;
+		for (i = 0; i <= this.cantidadOcios; i++) {
+			 titulo = recibirTexto("por favor ingresa el titulo del nuevo ocio" +i);
+			 char[]this.ocios = titulo.toCharArray();
+			 this.ocios[i]=titulo;
+		}
+	}
+	
+	private static String recibirTexto(String str) {
+		imprimir(str);
+		String ax = teclado.nextLine();
+		// String ax =JOptionPane.showInputDialog(str);
+		return ax;
 	}
 
 	private static int recibirEntero(String info) {
