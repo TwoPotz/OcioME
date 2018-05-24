@@ -1,5 +1,3 @@
-import java.util.Scanner;
-
 import javax.swing.JOptionPane;
 
 public class Estudiante {
@@ -7,28 +5,23 @@ public class Estudiante {
 	String nombre;
 	String carrera;
 	int edad;
-	int compararEdades;
 	int cantidadOcios;
 	Ocio[] ocios;
 
-	public Estudiante(String nombre, String carrera, int edad, int compararEdades, int cantidadOcios, Ocio[] ocios) {
-		super();
+	public Estudiante(String nombre, String carrera, int edad, int cantidadOcios, Ocio[] ocios) {
 		this.nombre = nombre;
 		this.carrera = carrera;
 		this.edad = edad;
-		this.compararEdades = compararEdades;
 		this.cantidadOcios = cantidadOcios;
 		this.ocios = ocios;
 	}
-	
-	static Scanner teclado = new Scanner(System.in);
 
 	/**
 	 * Muestra el perfil de los usarios registrados con OcioME.
 	 */
 	public void mostrarPerfil() {
-		String txt = "Nombre " + this.nombre + "\n" + "Carrera: " + this.carrera + "\n" + "Edad: " + this.edad + "\n"
-				+ "Cantidad de ocios: " + this.cantidadOcios + "\n";
+		String txt = "Nombre:      " + this.nombre + "\n" + "Carrera:       " + this.carrera + "\n" + "Edad:     "
+				+ this.edad + "\n" + "Cantidad de ocios: " + this.cantidadOcios + "\n";
 		imprimir(txt);
 	}
 
@@ -40,8 +33,8 @@ public class Estudiante {
 	 * Imprime la información.
 	 */
 	private static void imprimir(String txt) {
-		System.out.println(txt);
-		// JOptionPane.showMessageDialog(null, txt);
+		// System.out.println(txt);
+		JOptionPane.showMessageDialog(null, txt);
 	}
 
 	/**
@@ -56,15 +49,10 @@ public class Estudiante {
 	public boolean compararEdades(Estudiante otroEstudiante) {
 		int diferencia = recibirEntero("Inserta la diferencia de edad máxima entre tú y otro estudiante");
 		if (Math.abs(this.edad - otroEstudiante.edad) <= diferencia) {
-			// imprimir("Tú y " + otroEstudiante.nombre + " tienen una diferencia de edad
-			// menor a la indicada. ("
-			// + Math.abs(this.edad - otroEstudiante.edad) + ")");
 			return true;
 		} else {
-			// imprimir("La diferencia de edad es mayor a la indicada.");
 			return false;
 		}
-		// return Math.abs(this.edad - otroEstudiante.edad);
 	}
 
 	/**
@@ -112,28 +100,12 @@ public class Estudiante {
 
 	}
 
-	public void preguntarOcio(Estudiante otroEstudiante, Ocio ocio) {
-		int i = 0;
-		for (i = 0; i <= this.cantidadOcios; i++) {
-			if (ocio.tipo != this.ocios[i].tipo) {
-				i++;
-			}
-		}
+	public void compararOcio(Estudiante otroEstudiante, Ocio ocio) {
+
 	}
 
 	public void aniadirOcio(String titulo) {
-		int i=0;
-		for (i = 0; i <= this.cantidadOcios; i++) {
-			 titulo = recibirTexto("por favor ingresa el titulo del nuevo ocio" +i);
-			 this.ocios[i]=titulo;
-		}
-	}
-	
-	private static String recibirTexto(String str) {
-		imprimir(str);
-		String ax = teclado.nextLine();
-		// String ax =JOptionPane.showInputDialog(str);
-		return ax;
+
 	}
 
 	private static int recibirEntero(String info) {
