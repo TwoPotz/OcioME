@@ -39,10 +39,10 @@ public class Main {
 				sao.mostrarActividad();
 				infinitywar.mostrarActividad();
 				break;
-//			case 6:
-//				sao.esCalificacionPromedio();
-//				avatar.esCalificacionPromedio();
-//				break;
+			// case 6:
+			// sao.esCalificacionPromedio();
+			// avatar.esCalificacionPromedio();
+			// break;
 			case 7:
 				despedirse();
 				teclado.close();
