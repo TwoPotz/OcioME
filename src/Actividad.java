@@ -23,19 +23,6 @@ public class Actividad {
 		}
 	}
 
-	// double esCalificacionPromedio() {
-	// double calificacionPromedio = 0;
-	// for (int i = 0; i < 1; i++) {
-	// if (calificacion > 6) {
-	// calificacion = this.calificacion;
-	// imprimir("La serie es aceptable en: " + titulo);
-	// } else {
-	// imprimir("La serie tiene una mala calificacion en: " + titulo);
-	// }
-	// }
-	// return calificacionPromedio;
-	// }
-
 	/**
 	 * Muestra una actividad requerida.
 	 */
