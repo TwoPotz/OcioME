@@ -125,7 +125,6 @@ public class Estudiante {
 		int i=0;
 		for (i = 0; i <= this.cantidadOcios; i++) {
 			 titulo = recibirTexto("por favor ingresa el titulo del nuevo ocio" +i);
-			 char[]this.ocios = titulo.toCharArray();
 			 this.ocios[i]=titulo;
 		}
 	}
