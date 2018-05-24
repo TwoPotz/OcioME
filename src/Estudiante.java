@@ -1,5 +1,3 @@
-import java.util.Scanner;
-
 import javax.swing.JOptionPane;
 
 public class Estudiante {
@@ -11,13 +9,16 @@ public class Estudiante {
 	int cantidadOcios;
 	Ocio[] ocios;
 
-	public Estudiante(String nombre, String carrera, int edad, int cantidadOcios) {
-	super();
-	this.nombre = nombre;
-	this.carrera = carrera;
-	this.edad = edad;
-	this.cantidadOcios = cantidadOcios;
-}
+	public Estudiante(String nombre, String carrera, int edad, int compararEdades, int cantidadOcios, Ocio[] ocios) {
+		super();
+		this.nombre = nombre;
+		this.carrera = carrera;
+		this.edad = edad;
+		this.compararEdades = compararEdades;
+		this.cantidadOcios = cantidadOcios;
+		this.ocios = ocios;
+	}
+
 	/**
 	 * Muestra el perfil de los usarios registrados con OcioME.
 	 */
@@ -32,51 +33,104 @@ public class Estudiante {
 	}
 
 	/**
-	 * Imprime la informacion.
+	 * Imprime la información.
 	 */
 	private static void imprimir(String txt) {
-		// System.out.println(txt);
-		JOptionPane.showMessageDialog(null, txt);
+		System.out.println(txt);
+		// JOptionPane.showMessageDialog(null, txt);
 	}
 
-public static void compararEstudiantes(String txt) {
-	//Agregar los generos?
-	int terror = 0;
-	int comedia=1;
-	int anime=2;
-	int accion=3;
-	int carros=4;
-	int romance=5;
-	int deportes=6;
-	int documnetales=7;
-	int ocio1=comedia;
-	int ocio2=terror;
-	
-	
-	if(ocio1 == ocio2) {
-		JOptionPane.showMessageDialog(null, "Comparten los mismos ocios");	
-	}
-	else {
-		JOptionPane.showMessageDialog(null, "tienen diferentes ocios");
-	}
-	
-}
-
-	public void compararGustos() {
-
+	/**
+	 * Compara las edades de dos estudiantes con una diferencia de edad máxima
+	 * establecida.
+	 * 
+	 * @param otroEstudiante
+	 *            Segundo estudiante al que se quiere comparar.
+	 * @return Retorna verdadero si la diferencia de edades está dentro del rango
+	 *         establecido.
+	 */
+	public boolean compararEdades(Estudiante otroEstudiante) {
+		int diferencia = recibirEntero("Inserta la diferencia de edad máxima entre tú y otro estudiante");
+		if (Math.abs(this.edad - otroEstudiante.edad) <= diferencia) {
+			// imprimir("Tú y " + otroEstudiante.nombre + " tienen una diferencia de edad
+			// menor a la indicada. ("
+			// + Math.abs(this.edad - otroEstudiante.edad) + ")");
+			return true;
+		} else {
+			// imprimir("La diferencia de edad es mayor a la indicada.");
+			return false;
+		}
+		// return Math.abs(this.edad - otroEstudiante.edad);
 	}
 
-	public void preguntarOcio() {
+	/**
+	 * Compara si dos estudiantes cursan la misma carrera.
+	 * 
+	 * @param otroEstudiante
+	 *            Segundo estudiante al que se quiere comparar.
+	 * @return Retorna verdadero si los dos estudiantes cursan la misma carrera.
+	 */
+	public boolean compararCarreras(Estudiante otroEstudiante) {
+		if (this.carrera == otroEstudiante.carrera) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 
+	/**
+	 * Compara los perfiles de dos estudiantes ignorando sus gustos.
+	 * 
+	 * @param otroEstudiante
+	 *            Segundo estudiante al que se quiere comparar.
+	 */
+	public void compararEstudiantes(Estudiante otroEstudiante) {
+		String txt;
+		String txt1;
+		if (this.compararEdades(otroEstudiante)) {
+			txt = "¡Bien! Tú y " + otroEstudiante.nombre + " tienen una diferencia de edad menor a la indicada. ("
+					+ Math.abs(this.edad - otroEstudiante.edad) + ")";
+		} else {
+			txt = "Qué mal. Tú y " + otroEstudiante.nombre + " tienen una diferencia de edad mayor a la indicada. ("
+					+ Math.abs(this.edad - otroEstudiante.edad) + ")";
+		}
+		if (this.compararCarreras(otroEstudiante)) {
+			txt1 = "Tú y " + otroEstudiante.nombre + " cursan la misma carrera.";
+		} else {
+			txt1 = "Tú y " + otroEstudiante.nombre + " no son compañeros de carrera.";
+		}
+		imprimir("Tu comparación con " + otroEstudiante.nombre + " es:");
+		imprimir(txt);
+		imprimir(txt1);
+	}
+
+	public void compararGustos(Estudiante otroEstudiante) {
+
+	}
+
+	public void preguntarOcio(Estudiante otroEstudiante, Ocio ocio) {
+		int i = 0;
+		for (i = 0; i <= this.cantidadOcios; i++) {
+			if (ocio.tipo != this.ocios[i].tipo) {
+				i++;
+			}
+		}
 	}
 
 	public void aniadirOcio(String titulo) {
 
 	}
 
-	public static boolean compararCarreras() {
-		return false;
+	private static int recibirEntero(String info) {
+		int dato = -1;
+		String ax = JOptionPane.showInputDialog(info);
+		try {
+			dato = Integer.parseInt(ax);
+		} catch (NumberFormatException e) {
+			JOptionPane.showMessageDialog(null, "Error: " + e.getMessage());
 
+		}
+		return dato;
 	}
 
 }
