@@ -23,7 +23,9 @@ public class Main {
 	static Actividad animesLaura[] = new Actividad[5];
 	static Actividad seriesLaura[] = new Actividad[4];
 	static Estudiante laura = new Estudiante("Laura", "Diseño Industrial", 27, 3, ociosLaura);
-
+/**
+ * Llenar datos
+ */
 	private static void llenarDatos() {
 		// Datos de Fabio
 		peliculasFabio[0] = new Actividad("It", 8);
@@ -98,6 +100,10 @@ public class Main {
 
 	}
 
+	/**
+	 * Menu
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		saludar();
 		llenarDatos();
@@ -163,7 +169,11 @@ public class Main {
 	private static void saludar() {
 		imprimir("Bienvenidos al programa de OcioME \n" + "Enfocado a encontrar esa serie o pelicula de sus sueños");
 	}
-
+/**
+ * Metodo para recibir entero
+ * @param info
+ * @return
+ */
 	private static int recibirEntero(String info) {
 		int dato = -1;
 		String ax = JOptionPane.showInputDialog(info);
@@ -176,6 +186,12 @@ public class Main {
 		return dato;
 	}
 
+	/**
+	 * Metodo para recibir double
+	 * @param info
+	 * @return
+	 */
+	
 	private static double recibirDouble(String str) {
 		double resultado = -1;
 		String ax = JOptionPane.showInputDialog(str);
@@ -186,7 +202,12 @@ public class Main {
 		}
 		return resultado;
 	}
-
+	/**
+	 * Metodo para recibir texto
+	 * @param info
+	 * @return
+	 */
+	
 	private static String recibirTexto(String str) {
 		imprimir(str);
 		// String ax = teclado.nextLine();
@@ -194,10 +215,22 @@ public class Main {
 		return ax;
 	}
 
+	/**
+	 * Metodo para recibir iniciar sesion
+	 * @param info
+	 * @return
+	 */
+	
 	private static String iniciarSesion() {
 		return recibirTexto("Ingrese su nombre: ");
 	}
 
+	/**
+	 * Opciones del menu
+	 * @param info
+	 * @return
+	 */
+	
 	private static int menu() {
 		int opcion = -1;
 		String info = "¿Qué acción desea realizar? \n" + "1. Mostrar mi perfil.\n"
@@ -209,6 +242,13 @@ public class Main {
 
 	}
 
+	
+	/**
+	 * Despedida
+	 * @param info
+	 * @return
+	 */
+	
 	private static void despedirse() {
 		imprimir("Fue un placer ayudar con tus ocios, vuelve Pronto y recomiendaselo a tus amigos!!!");
 	}
