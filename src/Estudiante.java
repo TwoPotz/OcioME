@@ -6,7 +6,7 @@ public class Estudiante {
 	String carrera;
 	int edad;
 	int cantidadOcios;
-	Ocio[] ocios;
+	Ocio[] ocios = new Ocio[cantidadOcios];
 
 	public Estudiante(String nombre, String carrera, int edad, int cantidadOcios, Ocio[] ocios) {
 		this.nombre = nombre;
@@ -97,15 +97,59 @@ public class Estudiante {
 	}
 
 	public void compararGustos(Estudiante otroEstudiante) {
-
+		System.out.println("Tú y " + otroEstudiante.nombre + " comparten los siguientes Ocios:");
+		int y = 0;
+		for (int h = 0; h <= this.cantidadOcios; h++) {
+			for (int g = 0; g <= otroEstudiante.cantidadOcios; h++) {
+				if (this.ocios[h].tipo.equalsIgnoreCase(otroEstudiante.ocios[g].tipo)) {
+					System.out.println("->  " + this.ocios[h].tipo);
+					y++;
+				}
+			}
+		}
+		if (y == 0) {
+			System.out.println("Ninguno.");
+		}
 	}
 
-	public void compararOcio(Estudiante otroEstudiante, Ocio ocio) {
-
-	}
-
-	public void aniadirOcio(String titulo) {
-
+	public void compararOcio(Estudiante otroEstudiante, String texto) {
+		imprimir("Tú y " + otroEstudiante.nombre + " comparten las siguientes actividades dentro de " + texto + ":");
+		int q = 0;
+		int x = 0;
+		int y = 0;
+		while (true) {
+			if (texto.equalsIgnoreCase(this.ocios[x].tipo)) {
+				break;
+			}
+			x++;
+			if (x > this.cantidadOcios) {
+				imprimir("No se encuentra este Ocio en tu lista");
+				break;
+			}
+		}
+		while (true) {
+			if (texto.equalsIgnoreCase(otroEstudiante.ocios[y].tipo)) {
+				break;
+			}
+			y++;
+			if (y > otroEstudiante.cantidadOcios) {
+				imprimir("No se encuentra este Ocio en la lista de " + otroEstudiante.nombre);
+				break;
+			}
+		}
+		for (int h = 0; h <= this.cantidadOcios; h++) {
+			int g = 0;
+			for (g = 0; g <= otroEstudiante.cantidadOcios; g++) {
+				if (this.ocios[x].actividades[h].titulo
+						.equalsIgnoreCase(otroEstudiante.ocios[y].actividades[g].titulo)) {
+					imprimir("->  " + this.ocios[x].actividades[h].titulo);
+					q++;
+				}
+			}
+		}
+		if (q == 0) {
+			imprimir("Ninguno.");
+		}
 	}
 
 	private static int recibirEntero(String info) {
