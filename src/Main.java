@@ -23,9 +23,7 @@ public class Main {
 	static Actividad animesLaura[] = new Actividad[5];
 	static Actividad seriesLaura[] = new Actividad[4];
 	static Estudiante laura = new Estudiante("Laura", "Diseño Industrial", 27, 3, ociosLaura);
-/**
- * Llenar datos
- */
+
 	private static void llenarDatos() {
 		// Datos de Fabio
 		peliculasFabio[0] = new Actividad("It", 8);
@@ -100,10 +98,6 @@ public class Main {
 
 	}
 
-	/**
-	 * Menu
-	 * @param args
-	 */
 	public static void main(String[] args) {
 		saludar();
 		llenarDatos();
@@ -141,7 +135,24 @@ public class Main {
 						}
 						break;
 					case 4:
-						
+						String ociito = recibirTexto("Ingrese el nombre del Ocio");
+						int profePongame5 = 0;
+						while (true) {
+							if (ociito.equalsIgnoreCase(pedro.ocios[profePongame5].tipo)) {
+								break;
+							}
+							profePongame5++;
+							if (profePongame5 >= pedro.cantidadOcios) {
+								imprimir("No se encuentra este Ocio en tu lista");
+								break;
+							}
+						}
+						if (profePongame5 >= pedro.cantidadOcios) {
+							break;
+						}
+						for (int gg = 0; gg < ociosPedro[profePongame5].cantidadActividades; gg++) {
+							imprimir("->  " + ociosPedro[profePongame5].actividades[gg].titulo);
+						}
 						break;
 					case 5:
 						despedirse();
@@ -160,7 +171,7 @@ public class Main {
 				d = 0;
 				imprimir("Este usuario no existe.");
 			}
-		} 
+		}
 	}
 
 	/**
@@ -169,11 +180,7 @@ public class Main {
 	private static void saludar() {
 		imprimir("Bienvenidos al programa de OcioME \n" + "Enfocado a encontrar esa serie o pelicula de sus sueños");
 	}
-/**
- * Metodo para recibir entero
- * @param info
- * @return
- */
+
 	private static int recibirEntero(String info) {
 		int dato = -1;
 		String ax = JOptionPane.showInputDialog(info);
@@ -186,51 +193,17 @@ public class Main {
 		return dato;
 	}
 
-	/**
-	 * Metodo para recibir double
-	 * @param info
-	 * @return
-	 */
-	
-	private static double recibirDouble(String str) {
-		double resultado = -1;
-		String ax = JOptionPane.showInputDialog(str);
-		try {
-			resultado = Double.parseDouble(ax);
-		} catch (NumberFormatException e) {
-			JOptionPane.showMessageDialog(null, "Error: " + e.getMessage());
-		}
-		return resultado;
-	}
-	/**
-	 * Metodo para recibir texto
-	 * @param info
-	 * @return
-	 */
-	
 	private static String recibirTexto(String str) {
-		imprimir(str);
+		//imprimir(str);
 		// String ax = teclado.nextLine();
 		String ax = JOptionPane.showInputDialog(str);
 		return ax;
 	}
 
-	/**
-	 * Metodo para recibir iniciar sesion
-	 * @param info
-	 * @return
-	 */
-	
 	private static String iniciarSesion() {
 		return recibirTexto("Ingrese su nombre: ");
 	}
 
-	/**
-	 * Opciones del menu
-	 * @param info
-	 * @return
-	 */
-	
 	private static int menu() {
 		int opcion = -1;
 		String info = "¿Qué acción desea realizar? \n" + "1. Mostrar mi perfil.\n"
@@ -242,13 +215,6 @@ public class Main {
 
 	}
 
-	
-	/**
-	 * Despedida
-	 * @param info
-	 * @return
-	 */
-	
 	private static void despedirse() {
 		imprimir("Fue un placer ayudar con tus ocios, vuelve Pronto y recomiendaselo a tus amigos!!!");
 	}
