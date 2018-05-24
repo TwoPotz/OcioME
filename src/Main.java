@@ -69,7 +69,7 @@ public class Main {
 		librosPedro[6] = new Actividad("Las Cronicas De Narnia", 4);
 		librosPedro[7] = new Actividad("Las Cronicas De Kane", 6);
 		librosPedro[8] = new Actividad("Luna De Pluton", 1);
-		
+
 		ociosPedro[0] = new Ocio("Peliculas", 8, peliculasPedro);
 		ociosPedro[1] = new Ocio("Series", 2, seriesPedro);
 		ociosPedro[2] = new Ocio("Libros", 8, librosPedro);
@@ -91,10 +91,10 @@ public class Main {
 		seriesLaura[1] = new Actividad("La Casa De Papel", 9);
 		seriesLaura[2] = new Actividad("The Big Bang Theory", 7);
 		seriesLaura[3] = new Actividad("Two And A Half Men", 2);
-		
+
 		ociosLaura[0] = new Ocio("Peliculas", 5, peliculasLaura);
-		ociosLaura[0] = new Ocio("Animes", 5, animesLaura);
-		ociosLaura[0] = new Ocio("Series", 4, seriesLaura);
+		ociosLaura[1] = new Ocio("Animes", 5, animesLaura);
+		ociosLaura[2] = new Ocio("Series", 4, seriesLaura);
 
 	}
 
@@ -102,7 +102,7 @@ public class Main {
 		saludar();
 		llenarDatos();
 		int d;
-		do {
+		while (true) {
 			String sesion = iniciarSesion().toLowerCase();
 			if (sesion.equals(pedro.nombre.toLowerCase())) {
 				d = 1;
@@ -114,137 +114,47 @@ public class Main {
 						pedro.mostrarPerfil();
 						break;
 					case 2:
-						int g = 1;
-						do {
-							String ocioEleccion = recibirTexto("¿En qué Ocio desea ingresar su actividad?");
-							if (ocioEleccion.equals(pedro.ocios[0].tipo)) {
-								pedro.ocios[0].aniadirActividad(recibirTexto("Ingrese el título de su actividad"),
-										recibirEntero("Ingrese la calificación que le da a la actividad"));
-								imprimir("¡Añadido!");
-							} else if (ocioEleccion.equals(pedro.ocios[1].tipo)) {
-								pedro.ocios[1].aniadirActividad(recibirTexto("Ingrese el título de su actividad"),
-										recibirEntero("Ingrese la calificación que le da a la actividad"));
-								imprimir("¡Añadido!");
-							} else if (ocioEleccion.equals(pedro.ocios[2].tipo)) {
-								pedro.ocios[2].aniadirActividad(recibirTexto("Ingrese el título de su actividad"),
-										recibirEntero("Ingrese la calificación que le da a la actividad"));
-								imprimir("¡Añadido!");
-							} else {
-								g = 2;
-							}
-						} while (g == 2);
+						String nombre = recibirTexto("Inserte el nombre del otro estudiante.");
+						String ocio = recibirTexto("Ingrese el nombre del Ocio");
+						if (nombre.equalsIgnoreCase(laura.nombre)) {
+							pedro.compararOcio(laura, ocio);
+						} else if (nombre.equalsIgnoreCase(fabio.nombre)) {
+							pedro.compararOcio(fabio, ocio);
+						} else {
+							imprimir("Estudiante no encontrado.");
+						}
 						break;
 					case 3:
+						String dime = recibirTexto("Inserte el nombre del otro estudiante.");
+						if (dime.equalsIgnoreCase(laura.nombre)) {
+							pedro.compararEstudiantes(laura);
+						} else if (dime.equalsIgnoreCase(fabio.nombre)) {
+							pedro.compararEstudiantes(fabio);
+						} else {
+							imprimir("Estudiante no encontrado.");
+						}
 						break;
 					case 4:
+						
 						break;
 					case 5:
-						break;
-					case 6:
-						break;
-					case 7:
+						despedirse();
 						System.exit(0);
 						break;
 					default:
-						imprimir("Error en la opcion ingresada");
+						imprimir("Error en la opción ingresada");
 					}
 
 				} while (opcion != 7);
-			} else if (sesion.equals(laura.nombre.toLowerCase())) {
+			} else if (sesion == laura.nombre) {
 				d = 1;
-				int opcion = 0;
-				do {
-					opcion = menu();
-					switch (opcion) {
-					case 1:
-						laura.mostrarPerfil();
-						break;
-					case 2:
-						int g = 1;
-						do {
-							String ocioEleccion = recibirTexto("¿En qué Ocio desea ingresar su actividad?");
-							if (ocioEleccion.equals(laura.ocios[0].tipo)) {
-								laura.ocios[0].aniadirActividad(recibirTexto("Ingrese el título de su actividad"),
-										recibirEntero("Ingrese la calificación que le da a la actividad"));
-								imprimir("¡Añadido!");
-							} else if (ocioEleccion.equals(laura.ocios[1].tipo)) {
-								laura.ocios[1].aniadirActividad(recibirTexto("Ingrese el título de su actividad"),
-										recibirEntero("Ingrese la calificación que le da a la actividad"));
-								imprimir("¡Añadido!");
-							} else if (ocioEleccion.equals(laura.ocios[2].tipo)) {
-								laura.ocios[2].aniadirActividad(recibirTexto("Ingrese el título de su actividad"),
-										recibirEntero("Ingrese la calificación que le da a la actividad"));
-								imprimir("¡Añadido!");
-							} else {
-								g = 2;
-							}
-						} while (g == 2);
-						break;
-					case 3:
-						break;
-					case 4:
-						break;
-					case 5:
-						break;
-					case 6:
-						break;
-					case 7:
-						System.exit(0);
-						break;
-					default:
-						imprimir("Error en la opcion ingresada");
-					};
-			} else if (sesion.equals(fabio.nombre.toLowerCase())) {
-				d = 1;
-				int opcion = 0;
-				do {
-					opcion = menu();
-					switch (opcion) {
-					case 1:
-						fabio.mostrarPerfil();
-						break;
-					case 2:
-						int g = 1;
-						do {
-							String ocioEleccion = recibirTexto("¿En qué Ocio desea ingresar su actividad?");
-							if (ocioEleccion.equals(fabio.ocios[0].tipo)) {
-								fabio.ocios[0].aniadirActividad(recibirTexto("Ingrese el título de su actividad"),
-										recibirEntero("Ingrese la calificación que le da a la actividad"));
-								imprimir("¡Añadido!");
-							} else if (ocioEleccion.equals(fabio.ocios[1].tipo)) {
-								pedro.ocios[1].aniadirActividad(recibirTexto("Ingrese el título de su actividad"),
-										recibirEntero("Ingrese la calificación que le da a la actividad"));
-								imprimir("¡Añadido!");
-							} else if (ocioEleccion.equals(fabio.ocios[2].tipo)) {
-								fabio.ocios[2].aniadirActividad(recibirTexto("Ingrese el título de su actividad"),
-										recibirEntero("Ingrese la calificación que le da a la actividad"));
-								imprimir("¡Añadido!");
-							} else {
-								g = 2;
-							}
-						} while (g == 2);
-						break;
-					case 3:
-						break;
-					case 4:
-						break;
-					case 5:
-						break;
-					case 6:
-						break;
-					case 7:
-						System.exit(0);
-						break;
-					default:
-						imprimir("Error en la opcion ingresada");
-					}
+			} else if (sesion == fabio.nombre) {
 				d = 1;
 			} else {
 				d = 0;
 				imprimir("Este usuario no existe.");
 			}
-		} while (d == 1);
-		despedirse();
+		} 
 	}
 
 	/**
@@ -290,11 +200,9 @@ public class Main {
 
 	private static int menu() {
 		int opcion = -1;
-		String info = "¿Qué acción desea realizar? \n" + "1. Mostrar mi perfil.\n" + "2. Añadir una actividad.\n"
-				+ "3. Comparar ocio con otra persona.\n" + "4. Comparar mi perfil con otra persona.\n"
-				+ "5. Mostrar lista de actividades.\n"
-				+ "6. Muestra la calificación de las actividades, menos de 6 es mala y más de 6 es aceptable.\n"
-				+ "7. Salir.\n";
+		String info = "¿Qué acción desea realizar? \n" + "1. Mostrar mi perfil.\n"
+				+ "2. Comparar ocio con otra persona.\n" + "3. Comparar mi perfil con otra persona.\n"
+				+ "4. Mostrar lista de actividades.\n" + "5. Salir.\n";
 
 		opcion = recibirEntero(info);
 		return opcion;
